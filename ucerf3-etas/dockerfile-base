@@ -1,0 +1,10 @@
+FROM picoded/ubuntu-openjdk-8-jdk
+
+COPY . /run_dir
+
+RUN groupadd csep && useradd -s /bin/bash -g csep csep
+
+WORKDIR /run_dir
+
+ENV PATH="$PATH:/run_dir/sbin"
+

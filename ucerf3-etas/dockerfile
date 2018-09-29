@@ -1,10 +1,5 @@
-FROM picoded/ubuntu-openjdk-8-jdk
+# starting from base image
+FROM wsavran/csep:u3etas-base
 
-COPY inputs lib sbin user_output /run_dir/
-
-RUN groupadd csep && useradd -s /bin/bash -g csep csep
-
-WORKDIR /run_dir/
-
-# set environment variables needed for runtime here
-ENV PATH="$PATH:/run_dir/sbin"
+# update configuration file for specific run
+COPY u3etas_inputs.json /run_dir
